@@ -1,4 +1,5 @@
 using MoviesApp.Models;
+using MoviesApp.Data;
 
 namespace MoviesApp.Repositories
 {
@@ -23,23 +24,21 @@ namespace MoviesApp.Repositories
             return oneMovie;
         }
 
-        [HttpPost]
         public void Add(Movie newMovie)
         {
             _db.Movies.Add(newMovie);
             _db.SaveChanges();
         }
 
-        [HttpPost]
         public void Update(Movie updatedMovie)
         {
-            var existingMovie = _db.Movies.FirstOrDefault(m => m.Id == updatedMovie.Id);
-            if (existingMovie != null)
+            var existMovie = _db.Movies.FirstOrDefault(m => m.Id == updatedMovie.Id);
+            if (existMovie != null)
             {
-                existingMovie.Title = updatedMovie.Title;
-                existingMovie.ReleaseYear = updatedMovie.ReleaseYear;
-                existingMovie.Genre = updatedMovie.Genre;
-                existingMovie.ImgUrl = updatedMovie.ImgUrl;
+                existMovie.Title = updatedMovie.Title;
+                existMovie.ReleaseYear = updatedMovie.ReleaseYear;
+                existMovie.Genre = updatedMovie.Genre;
+                existMovie.ImgUrl = updatedMovie.ImgUrl;
             }
             _db.SaveChanges();
         }

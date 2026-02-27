@@ -1,5 +1,5 @@
-﻿<!-- TODO: Add Student Name -->
-<!-- TODO: Add Student ID -->
+﻿<!-- Student Name: Chunxi Zhang -->
+<!-- Student ID: 8971818 -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +27,7 @@
 
                         <!-- TODO: Replace this comment with a real link to Movie/Index -->
                         <li class="nav-item">
-                            <a class="nav-link text-dark bg-warning">Add Movies Link Here</a>
+                            <a class="nav-link text-dark" asp-controller="Movie" asp-action="Index">Movies</a>
                         </li>
 
                     </ul>
@@ -49,5 +49,6 @@
     </footer>
 
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
